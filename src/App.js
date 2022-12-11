@@ -6,10 +6,18 @@ function App() {
 
   const [onInit, setOnInit] = useState(true)
 
+
   useEffect(() => {
 
     if (onInit) {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}`)     
+
+      console.log('el dato de de la url es....');
+      console.log(process.env.REACT_APP_BACKEND_URL)
+      console.log('fin')
+
+
+
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/`)     
       .then(res=>res.json())   
         .then(
           (result) => {
