@@ -1,8 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
-  alert(process.env.REACT_APP_OTRA_VARIABLE);
+
+  const [onInit, setOnInit] = useState(true)
+
+  useEffect(() => {
+
+    if (onInit) {
+      fetch("http://localhost:3001/")     
+      .then(res=>res.json())   
+        .then(
+          (result) => {
+            console.log(result);
+            alert(result.msg);
+            setOnInit(false);
+          }
+        )
+        .catch(err => {
+          console.log(err)
+          alert('Hubo un error')
+          setOnInit(false);
+        })
+
+    }
+
+
+  }, [onInit])
+
+
+  
   return (
     <div className="App">
       <header className="App-header">
