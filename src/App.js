@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
 
     if (onInit) {
-      fetch("http://localhost:3001/")     
+      fetch(`${REACT_APP_BACKEND_URL}`)     
       .then(res=>res.json())   
         .then(
           (result) => {
