@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
 
     if (onInit) {
-      fetch(`${REACT_APP_BACKEND_URL}`)     
+      fetch(`${process.env.REACT_APP_BACKEND_URL}`)     
       .then(res=>res.json())   
         .then(
           (result) => {
